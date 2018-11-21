@@ -6,14 +6,23 @@
     @touchend="onWrapperTouchEnd"
     @touchcancel="onWrapperTouchEnd"
   >
-    <div v-if="showIndex" :class="b('index')">{{ active + 1 }}/{{ count }}</div>
+    <div
+      v-if="showIndex"
+      :class="b('index')"
+    >
+      {{ active + 1 }}/{{ count }}
+    </div>
     <swipe
       ref="swipe"
+      :loop="loop"
       :initial-swipe="startPosition"
-      :show-indicators="false"
+      :show-indicators="showIndicators"
       @change="onChange"
     >
-      <swipe-item v-for="(item, index) in images" :key="index">
+      <swipe-item
+        v-for="(item, index) in images"
+        :key="index"
+      >
         <img
           :class="b('image')"
           :src="item"
@@ -50,9 +59,14 @@ export default create({
   },
 
   props: {
+    showIndicators: Boolean,
     images: {
       type: Array,
       default: () => []
+    },
+    loop: {
+      type: Boolean,
+      default: true
     },
     startPosition: {
       type: Number,

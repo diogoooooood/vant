@@ -1,5 +1,8 @@
 <template>
-  <cell-group :class="b()">
+  <cell-group
+    :class="b()"
+    :border="border"
+  >
     <cell
       :title="title || $t('title')"
       :value="value"
@@ -21,6 +24,10 @@ export default create({
 
   props: {
     title: String,
+    border: {
+      type: Boolean,
+      default: true
+    },
     coupons: {
       type: Array,
       default: () => []

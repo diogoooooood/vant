@@ -380,6 +380,18 @@ module.exports = {
     {
       src: '购物车3.svg',
       css: 'cart-o'
+    },
+    {
+      src: 'question2.svg',
+      css: 'question2'
+    },
+    {
+      src: 'star.svg',
+      css: 'star'
+    },
+    {
+      src: 'star-o.svg',
+      css: 'star-o'
     }
   ]
 };
